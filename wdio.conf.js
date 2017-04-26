@@ -10,12 +10,12 @@ exports.config = {
     // `wdio` will be called from there.
     //
     specs: [
-        './src/features/**/*.feature',
+        './features/*.feature',
     ],
     // ...
     // define specific suites
     suites: {
-        theinternet: ['./src/features/theinternet.feature']
+        theinternet: ['./features/theinternet.feature']
     },
     // Patterns to exclude.
     exclude: [
@@ -54,35 +54,36 @@ exports.config = {
     //     browserName: 'chrome',
     // }],
 
-    // services: ['selenium-standalone'],
-    // capabilities: [{
-    //     browserName: 'chrome'
-    // }],
+    services: ['selenium-standalone'],
+    capabilities: [{
+        browserName: 'chrome'
+    }],
 
     // -- SAUCELABS --
     //  Uncomment the services, user, key & capabilities keys below if you want to run on Saucelabs.
 
-
-    services: ['sauce'],
-    user: process.env.SAUCE_USERNAME,
-    key: process.env.SAUCE_API_KEY,
-    capabilities: [
-        {
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        maxInstances: 10,
-        //
-
-            'browserName': 'chrome',
-            'version': 'latest',
-            'platform': 'Windows 7',
-            'tunnel-identifier' : 'cptweb-tunnel',
-            'maxDuration' : 10800,
-            'idleTimeout' : 900,
-            'commandTimeout':600,
-
-    }
+    //
+    // services: ['sauce'],
+    // // services: ['selenium-standalone'],
+    //
+    // user: process.env.SAUCE_USERNAME,
+    // key: process.env.SAUCE_API_KEY,
+    // capabilities: [
+    //     {
+    //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+    //     // grid with only 5 firefox instances available you can make sure that not more than
+    //     // 5 instances get started at a time.
+    //     maxInstances: 10,
+    //     //
+    //         'browserName': 'chrome',
+    //         'version': 'latest',
+    //         'platform': 'Windows 7',
+    //         // 'tunnel-identifier' : 'cptweb-tunnel',
+    //         'maxDuration' : 10800,
+    //         'idleTimeout' : 900,
+    //         'commandTimeout':600,
+    //
+    // }
     // {
     //     maxInstances: 10,
     //     browserName: 'chrome',
@@ -95,7 +96,7 @@ exports.config = {
     //     version: '11.103',
     //     platform: 'Windows 10'
     // }
-    ],
+    // ],
 
     //
     // ===================
@@ -121,8 +122,6 @@ exports.config = {
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
     baseUrl: 'http://the-internet.herokuapp.com/',
-    // baseUrl: 'http://www.google.com',
-    // baseUrl: 'https://the-internet.herokuapp.com/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 15000,
@@ -180,14 +179,16 @@ exports.config = {
     // If you are using Cucumber you need to specify the location of your step
     // definitions.
     cucumberOpts: {
+        // compiler: "typescript:typescript-node/register",
+        compiler: ["ts:ts-node/register"],
         require: [
-            // './src/steps/example.js',
-            './src/steps/theinternet.js'
+            // './src/steps/theinternet.js'
+            './steps/theinternet.ts'
         ], // <string[]> (file/dir) require files before executing features
         backtrace: true, // <boolean> show full backtrace for errors
-        compiler: [
-            'js:babel-register',
-        ], // <string[]> ("extension:module") require files with the given
+        // compiler: [
+        //     'js:babel-register',
+        // ], // <string[]> ("extension:module") require files with the given
            // EXTENSION after requiring MODULE (repeatable)
         dryRun: false, // <boolean> invoke formatters without executing steps
         failFast: false, // <boolean> abort the run on first failure
@@ -201,7 +202,9 @@ exports.config = {
         profile: [], // <string[]> (name) specify the profile to use
         strict: true, // <boolean> fail if there are any undefined or pending
                        // steps
-        tags: require('./src/tagProcessor')(process.argv),
+
+        // tags: require('./src/tagProcessor')(process.argv),
+
         // <string[]> (expression) only execute the features or scenarios with
         // tags matching the expression
         timeout: 20000,     // <number> timeout for step definitions
