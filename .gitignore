@@ -1,0 +1,9 @@
+.idea
+errorShots
+node_modules
+test.csv
+test.xls
+test.xlsx
+test.tsv
+allure-report
+allure-results

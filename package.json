@@ -1,0 +1,66 @@
+{
+  "name": "cucumber-boilerplate",
+  "version": "1.1.0",
+  "description": "Boilerplate project to run WebdriverIO tests with Cucumber",
+  "homepage": "https://github.com/webdriverio/cucumber-boilerplate",
+  "main": "test/runner.js",
+  "scripts": {
+    "clean": "read -p \"Are you sure you want to clean the project? [y/n] \" -n 1 -r; if [[ $REPLY =~ ^[Yy]$ ]]; then sudo rm -R .git .github demo-app test .travis.yml jest.json wdio.BUILD.conf.js src/features/**; fi",
+    "local-webserver": "http-server ./demo-app -s",
+    "test": "./node_modules/.bin/wdio",
+    "test:features": "npm run-script local-webserver & (wdio wdio.BUILD.conf.js; wdio_ret=$?; kill $(lsof -t -i:8080); exit $wdio_ret)",
+    "test:unit": "jest --config=jest.json",
+    "test:validate": "eslint 'src/**/*.js' 'test/**/*.js!(setup.js)'",
+    "cleanup": "rm -rf ./allure-results && rm -rf ./allure-report && rm -rf ./errorShots",
+    "report": "allure generate allure-results && allure report open",
+    "posttest": "npm run report",
+    "test-ts": "node ./node_modules/typescript/lib/tsc.js && node ./node_modules/webdriverio/bin/wdio && node ./node_modules/rimraf/bin.js src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdriverio/cucumber-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/webdriverio/cucumber-boilerplate/issues"
+  },
+  "keywords": [
+    "webdriverio",
+    "cucumber",
+    "test",
+    "selenium"
+  ],
+  "author": "Christian Bromann <christian@saucelabs.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-es2015": "~6.18.0",
+    "babel-register": "~6.18.0",
+    "chai": "~3.5.0",
+    "cucumber": "^1.3.1",
+    "wdio-cucumber-framework": "~0.2.15",
+    "wdio-phantomjs-service": "~0.2.2",
+    "wdio-selenium-standalone-service": "~0.0.7",
+    "wdio-spec-reporter": "~0.0.5",
+    "webdriverio": "~4.6.1",
+    "grunt": "latest",
+    "grunt-cucumber": "latest",
+    "wdio-allure-reporter": "0.1.2",
+    "allure-commandline": "1.4.23"
+  },
+  "devDependencies": {
+    "babel-jest": "~18.0.0",
+    "babel-polyfill": "~6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "eslint": "~3.13.1",
+    "eslint-config-airbnb-base": "~11.0.1",
+    "http-server": "~0.9.0",
+    "jest": "~18.1.0",
+    "wdio-cucumber-reporter": "~0.0.x"
+    "@types/chai": "^3.4.34",
+    "@types/mocha": "^2.2.32",
+    "@types/webdriverio": "^4.4.0",
+    "chai": "^3.5.0",
+    "rimraf": "^2.5.4",
+    "typescript": "^2.0.6",
+    "wdio-mocha-framework": "^0.5.7"
+  }
+}
