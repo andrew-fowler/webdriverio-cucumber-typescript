@@ -15,12 +15,7 @@ exports.config = {
     // ...
     // define specific suites
     suites: {
-        cookiePolicy: [
-            './src/features/cookiePolicy.feature'
-        ],
-        login: [
-            './src/features/login.feature'
-        ]
+        theinternet: ['./src/features/theinternet.feature']
     },
     // Patterns to exclude.
     exclude: [
@@ -69,8 +64,8 @@ exports.config = {
 
 
     services: ['sauce'],
-    user: 'jatin-sethi',
-    key: 'bcad98d5-169c-4978-b604-a16432d97143',
+    user: process.env.SAUCE_USERNAME,
+    key: process.env.SAUCE_API_KEY,
     capabilities: [
         {
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
@@ -125,7 +120,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: 'https://qa-cptweb-scottishwidows.lbg.eu-gb.mybluemix.net/#/',
+    baseUrl: 'http://the-internet.herokuapp.com/',
     // baseUrl: 'http://www.google.com',
     // baseUrl: 'https://the-internet.herokuapp.com/',
     //
@@ -187,8 +182,7 @@ exports.config = {
     cucumberOpts: {
         require: [
             // './src/steps/example.js',
-            './src/steps/login.js',
-            './src/steps/cookiePolicy.js',
+            './src/steps/theinternet.js'
         ], // <string[]> (file/dir) require files before executing features
         backtrace: true, // <boolean> show full backtrace for errors
         compiler: [
