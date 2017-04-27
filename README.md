@@ -31,7 +31,7 @@ Run `npm run test-local`
 
 `tsconfig.json` defines the `outDir` where Typescript will transpile to.  This directory is auto-deleted by the `npm test` command after execution, so ensure that this doesn't correlate to a directory you require.
 
-`local.conf.js` defines the configuration of webdriverio.  
+`conf/local.conf.js` and `conf/saucelabs.conf.js` define the configuration of webdriverio.  
 - `specs: [...]` defines matchers for the cucumber feature files to run as default.  
 - `suites: {...}` defines named matcher sets for different suite types (e.g. smoke, login, etc.)
 - `services` and `capabilities` define the nature of the selenium execution.  Most commonly support local (standalone) execution or Saucelabs.
