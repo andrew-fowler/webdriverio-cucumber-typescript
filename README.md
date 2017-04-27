@@ -1,20 +1,21 @@
-##Summary
+## Summary
 
 This is a basic example of Webdriverio + Cucumberjs + Typescript usage.
 
-##Getting Started
+## Getting Started
 
-###Requirements
+### Requirements
 
-Local Chrome browser
+Local Chrome browser, or Saucelabs account.
+Node v4.8.0+
 
-###Installation
+### Installation
 
 - `npm install`
 
-###Execution
+### Execution
 
-####Saucelabs
+#### Saucelabs
 
 To execute across Saucelabs, set the `SAUCE_USERNAME` and `SAUCE_API_KEY` environment variables.
 
@@ -22,13 +23,13 @@ In the `wdio.conf.js` file, comment out the `LOCAL SELENIUM CONFIGURATION` and u
 
 Note that you aren't required to create a Sauce Connect tunnel, this will be handled automatically.
 
-####Local
+#### Local
 
 In the `wdio.conf.js` file, comment out the `SAUCELABS SELENIUM CONFIGURATION` and uncomment the `LOCAL SELENIUM CONFIGURATION`.
 
 - `npm test`
 
-##Configuration
+## Configuration
 
 `tsconfig.json` defines the `outDir` where Typescript will transpile to.  This directory is auto-deleted by the `npm test` command after execution, so ensure that this doesn't correlate to a directory you require.
 
@@ -41,7 +42,7 @@ In the `wdio.conf.js` file, comment out the `SAUCELABS SELENIUM CONFIGURATION` a
 
 For more information on configuration, see http://webdriver.io/guide/testrunner/configurationfile.html
 
-#TO DO
+# TO DO
 
 - Correct package.json metadata
 - Create distinct local & saucelabs config files
