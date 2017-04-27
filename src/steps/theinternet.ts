@@ -1,7 +1,7 @@
 import TheInternet from '../model/pages/theinternet.page';
 
 var module: any;
-module.exports = function login() {
+module.exports = function theinternet() {
 
     this.Given(
         /^I load the internet/,

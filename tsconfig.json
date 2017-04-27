@@ -7,10 +7,10 @@
     "experimentalDecorators": true,
     "removeComments": true,
     "noImplicitAny": false,
-    "outDir": "src/"
+    "outDir": "tsrc/"
   },
   "exclude": [
-    "node_modules"
+    "./node_modules"
   ],
   "compileOnSave": false
 }

@@ -10,12 +10,12 @@ exports.config = {
     // `wdio` will be called from there.
     //
     specs: [
-        './features/*.feature',
+        './src/features/*.feature',
     ],
     // ...
     // define specific suites
     suites: {
-        theinternet: ['./features/theinternet.feature']
+        theinternet: ['./src/features/theinternet.feature']
     },
     // Patterns to exclude.
     exclude: [
@@ -54,48 +54,46 @@ exports.config = {
     //     browserName: 'chrome',
     // }],
 
+    // ============================
+    // LOCAL SELENIUM CONFIGURATION
+    // ============================
+    //  Uncomment the services & capabilities keys below if you want to run using a local browser.
     services: ['selenium-standalone'],
     capabilities: [{
         browserName: 'chrome'
     }],
 
-    // -- SAUCELABS --
-    //  Uncomment the services, user, key & capabilities keys below if you want to run on Saucelabs.
-
+    // // ================================
+    // // SAUCELABS SELENIUM CONFIGURATION
+    // // ================================
+    // //  Uncomment the services, user, key & capabilities keys below if you want to run on Saucelabs.
     //
-    // services: ['sauce'],
-    // // services: ['selenium-standalone'],
-    //
-    // user: process.env.SAUCE_USERNAME,
-    // key: process.env.SAUCE_API_KEY,
     // capabilities: [
     //     {
-    //     // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-    //     // grid with only 5 firefox instances available you can make sure that not more than
-    //     // 5 instances get started at a time.
-    //     maxInstances: 10,
-    //     //
+    //         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+    //         // grid with only 5 firefox instances available you can make sure that not more than
+    //         // 5 instances get started at a time.
+    //         maxInstances: 10,
     //         'browserName': 'chrome',
     //         'version': 'latest',
     //         'platform': 'Windows 7',
-    //         // 'tunnel-identifier' : 'cptweb-tunnel',
     //         'maxDuration' : 10800,
     //         'idleTimeout' : 900,
     //         'commandTimeout':600,
     //
-    // }
-    // {
-    //     maxInstances: 10,
-    //     browserName: 'chrome',
-    //     platform: 'Windows 10'
-    // }
-    // ,
-    // {
-    //     maxInstances: 10,
-    //     browserName: 'internet explorer',
-    //     version: '11.103',
-    //     platform: 'Windows 10'
-    // }
+    //     },
+    //     {
+    //         maxInstances: 10,
+    //         browserName: 'chrome',
+    //         platform: 'Windows 10'
+    //     }
+    //     ,
+    //     {
+    //         maxInstances: 10,
+    //         browserName: 'internet explorer',
+    //         version: '11.103',
+    //         platform: 'Windows 10'
+    //     }
     // ],
 
     //
@@ -169,21 +167,17 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     // reporters: ['spec'],
-    reporters: ['dot', 'allure'],
+    reporters: ['dot'],
     reporterOptions: {
-        allure: {
-            outputDir: 'allure-results'
-        }
+
     },
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.
     cucumberOpts: {
-        // compiler: "typescript:typescript-node/register",
         compiler: ["ts:ts-node/register"],
         require: [
-            // './src/steps/theinternet.js'
-            './steps/theinternet.ts'
+            './src/steps/theinternet.ts'
         ], // <string[]> (file/dir) require files before executing features
         backtrace: true, // <boolean> show full backtrace for errors
         // compiler: [
@@ -203,7 +197,7 @@ exports.config = {
         strict: true, // <boolean> fail if there are any undefined or pending
                        // steps
 
-        // tags: require('./src/tagProcessor')(process.argv),
+        // tags: require('./teststests/tagProcessor')(process.argv),
 
         // <string[]> (expression) only execute the features or scenarios with
         // tags matching the expression
