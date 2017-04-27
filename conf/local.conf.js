@@ -21,6 +21,14 @@ exports.config = {
     exclude: [
         // 'path/to/excluded/files'
     ],
+
+    // ============================
+    // LOCAL SELENIUM CONFIGURATION
+    // ============================
+    //  Uncomment the services & capabilities keys below if you want to run using a local browser.
+    services: ['selenium-standalone'],
+    maxInstances: 1,
+
     //
     // ============
     // Capabilities
@@ -39,26 +47,9 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 1,
-    //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
     // capabilities: https://docs.saucelabs.com/reference/platforms-configurator
-    //
-    // capabilities: [{
-    //     // maxInstances can get overwritten per capability. So if you have an
-    //     // in-house Selenium grid with only 5 firefox instance available you can
-    //     // make sure that not more than 5 instance gets started at a time.
-    //     maxInstances: 5,
-    //     //
-    //     browserName: 'chrome',
-    // }],
-
-    // ============================
-    // LOCAL SELENIUM CONFIGURATION
-    // ============================
-    //  Uncomment the services & capabilities keys below if you want to run using a local browser.
-    services: ['selenium-standalone'],
     capabilities: [{
         browserName: 'chrome'
     }],
@@ -134,9 +125,9 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     // reporters: ['spec'],
-    reporters: ['dot'],
+    reporters: ['dot','xunit'],
     reporterOptions: {
-
+        outputDir: './output/reports'
     },
     //
     // If you are using Cucumber you need to specify the location of your step
