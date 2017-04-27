@@ -29,7 +29,7 @@ Run `npm run test-local`
 
 ## Configuration
 
-`tsconfig.json` defines the `outDir` where Typescript will transpile to.  This directory is auto-deleted by the `npm test` command after execution, so ensure that this doesn't correlate to a directory you require.
+`tsconfig.json` defines the `outDir` where Typescript will transpile to.  This directory is auto-deleted by the `npm test-*` commands after execution, so ensure that this doesn't correlate to a directory you require.
 
 `conf/local.conf.js` and `conf/saucelabs.conf.js` define the configuration of webdriverio.  
 - `specs: [...]` defines matchers for the cucumber feature files to run as default.  
