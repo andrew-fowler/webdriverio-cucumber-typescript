@@ -17,23 +17,21 @@ Node v4.8.0+
 
 #### Saucelabs
 
-To execute across Saucelabs, set the `SAUCE_USERNAME` and `SAUCE_API_KEY` environment variables.
-
-In the `wdio.conf.js` file, comment out the `LOCAL SELENIUM CONFIGURATION` and uncomment the `SAUCELABS SELENIUM CONFIGURATION`.
+To execute across Saucelabs, set the `SAUCE_USERNAME` and `SAUCE_ACCESS_KEY` environment variables.
 
 Note that you aren't required to create a Sauce Connect tunnel, this will be handled automatically.
 
+Run `npm run test-sauce`
+
 #### Local
 
-In the `wdio.conf.js` file, comment out the `SAUCELABS SELENIUM CONFIGURATION` and uncomment the `LOCAL SELENIUM CONFIGURATION`.
-
-- `npm test`
+Run `npm run test-local`
 
 ## Configuration
 
 `tsconfig.json` defines the `outDir` where Typescript will transpile to.  This directory is auto-deleted by the `npm test` command after execution, so ensure that this doesn't correlate to a directory you require.
 
-`wdio.conf.js` defines the configuration of webdriverio.  
+`local.conf.js` defines the configuration of webdriverio.  
 - `specs: [...]` defines matchers for the cucumber feature files to run as default.  
 - `suites: {...}` defines named matcher sets for different suite types (e.g. smoke, login, etc.)
 - `services` and `capabilities` define the nature of the selenium execution.  Most commonly support local (standalone) execution or Saucelabs.
@@ -44,7 +42,4 @@ For more information on configuration, see http://webdriver.io/guide/testrunner/
 
 # TO DO
 
-- Correct package.json metadata
-- Create distinct local & saucelabs config files
 - Put all config files into /config
-- Choose a good reporter

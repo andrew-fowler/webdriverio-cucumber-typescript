@@ -1,9 +1,10 @@
 {
   "name": "webdriverio-cucumber-typescript",
-  "version": "0.1",
+  "version": "0.0.1",
   "description": "A basic example of automation with WebdriverIO, Cucumberjs & TypeScript.",
   "scripts": {
-    "test": "node ./node_modules/typescript/lib/tsc.js && node ./node_modules/webdriverio/bin/wdio && node ./node_modules/rimraf/bin.js tsrc"
+    "test-local": "node ./node_modules/typescript/lib/tsc.js && node ./node_modules/webdriverio/bin/wdio ./conf/local.conf.js && node ./node_modules/rimraf/bin.js tsrc",
+    "test-sauce": "node ./node_modules/typescript/lib/tsc.js && node ./node_modules/webdriverio/bin/wdio ./conf/saucelabs.conf.js && node ./node_modules/rimraf/bin.js tsrc"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",

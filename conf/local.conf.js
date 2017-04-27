@@ -63,39 +63,6 @@ exports.config = {
         browserName: 'chrome'
     }],
 
-    // // ================================
-    // // SAUCELABS SELENIUM CONFIGURATION
-    // // ================================
-    // //  Uncomment the services, user, key & capabilities keys below if you want to run on Saucelabs.
-    //
-    // capabilities: [
-    //     {
-    //         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-    //         // grid with only 5 firefox instances available you can make sure that not more than
-    //         // 5 instances get started at a time.
-    //         maxInstances: 10,
-    //         'browserName': 'chrome',
-    //         'version': 'latest',
-    //         'platform': 'Windows 7',
-    //         'maxDuration' : 10800,
-    //         'idleTimeout' : 900,
-    //         'commandTimeout':600,
-    //
-    //     },
-    //     {
-    //         maxInstances: 10,
-    //         browserName: 'chrome',
-    //         platform: 'Windows 10'
-    //     }
-    //     ,
-    //     {
-    //         maxInstances: 10,
-    //         browserName: 'internet explorer',
-    //         version: '11.103',
-    //         platform: 'Windows 10'
-    //     }
-    // ],
-
     //
     // ===================
     // Test Configurations
