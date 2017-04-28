@@ -158,7 +158,7 @@ exports.config = {
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: ['spec'],
     reporterOptions: {
-        outputDir: 'output/reports'
+        outputDir: './output/reports'
     },
 
     // If you are using Cucumber you need to specify the location of your step
@@ -166,7 +166,7 @@ exports.config = {
     cucumberOpts: {
         compiler: ["ts:ts-node/register"],
         require: [
-            './src/steps/theinternet.ts'
+            './src/steps/'
         ], // <string[]> (file/dir) require files before executing features
         backtrace: true, // <boolean> show full backtrace for errors
 

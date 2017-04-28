@@ -1,5 +1,5 @@
-Feature:
+Feature: The internet
 
-  Scenario: Load the internet
+  Scenario: Loading the internet
     Given I load the internet
     Then the internet is loaded

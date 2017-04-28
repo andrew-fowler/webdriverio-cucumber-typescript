@@ -135,7 +135,7 @@ exports.config = {
     cucumberOpts: {
         compiler: ["ts:ts-node/register"],
         require: [
-            './src/steps/theinternet.ts'
+            './src/steps/'
         ], // <string[]> (file/dir) require files before executing features
         backtrace: true, // <boolean> show full backtrace for errors
         // compiler: [
