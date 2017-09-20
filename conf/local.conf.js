@@ -67,7 +67,7 @@ exports.config = {
     //
     // Level of logging verbosity: silent | verbose | command | data | result |
     // error
-    logLevel: 'verbose',
+    // logLevel: 'verbose',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -125,7 +125,7 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     // reporters: ['spec'],
-    reporters: ['dot','xunit'],
+    reporters: ['spec'],
     reporterOptions: {
         outputDir: './output/reports'
     },

@@ -99,7 +99,7 @@ exports.config = {
     //
     // Level of logging verbosity: silent | verbose | command | data | result |
     // error
-    logLevel: 'verbose',
+    // logLevel: 'verbose',
     //
     // Enables colors for log output.
     coloredLogs: true,
@@ -156,7 +156,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ['spec','junit'],
+    reporters: ['spec'],
     reporterOptions: {
         outputDir: './output/reports'
     },
@@ -188,7 +188,7 @@ exports.config = {
 
         // <string[]> (expression) only execute the features or scenarios with
         // tags matching the expression
-        timeout: 20000,     // <number> timeout for step definitions
+        timeout: 40000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to
                                            // treat undefined definitions as
                                            // warnings.
